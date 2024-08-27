@@ -5,7 +5,7 @@ const JobListings = () => {
 
 
     return (
-        <main>
+        <main className={'container col-12 col-md-7'}>
                 <Header />
                 <Table />
         </main>
