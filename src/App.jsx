@@ -1,12 +1,11 @@
 import 'bootstrap'
 import './App.css'
-import JobDescriptionModal from "./components/JobDescriptionModal/index.jsx";
+import JobSearch from "./components/JobSearch/index.jsx";
 
 function App() {
-
   return (
       <>
-          <JobDescriptionModal id={300}/>
+          <JobSearch/>
       </>
   )
 }

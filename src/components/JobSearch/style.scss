@@ -1,0 +1,12 @@
+$checkboxColor: #cc45cc;
+
+.backgroundPic {
+  background-image: url("https://www.shutterstock.com/image-photo/close-smiling-businessmen-discussing-documents-260nw-2175384757.jpg");
+  background-size: cover;
+}
+
+.form-check-input:checked {
+  background-color: $checkboxColor;
+  border: $checkboxColor;
+  box-shadow: none;
+}
