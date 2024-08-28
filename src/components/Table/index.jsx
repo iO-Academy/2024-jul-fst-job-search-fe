@@ -1,6 +1,7 @@
 import TableRow from "../TableRow/index.jsx";
 import SkillsBadge from "../SkillsBadge/index.jsx";
 import TypeBadge from "../TypeBadge/index.jsx";
+import Salary from "../Salary/index.jsx";
 
 const Table = ({recentJobInfo}) => {
     console.log(recentJobInfo)
@@ -18,24 +19,25 @@ const Table = ({recentJobInfo}) => {
             {
                 recentJobInfo.map((item) => {
                     return (
-                    <TableRow jobTitle={item.job_title}
-                              company={item.company} logo={item.logo}
-                              contract={<TypeBadge jobType={item.type}/>}
-                              salary={item.salary}
-                              skills={item.skills.map((itemSkills)=> {
-                        return (
-                            <SkillsBadge itemSkills={itemSkills.skill}/>
-                        )
-                    })}/>
+                        <TableRow
+                            key={item.id}
+                            jobTitle={item.job_title}
+                            company={item.company} logo={item.logo}
+                            contract={<TypeBadge jobType={item.type}/>}
+                            salary={item.salary && <Salary salary={item.salary}/>}
+                            skills={item.skills.map((itemSkills) => {
+                                return (
+                                    <SkillsBadge
+                                        key={itemSkills.id}
+                                        itemSkills={itemSkills.skill}/>
+                                )
+                            })}/>
                     )
                 })
-
             }
-
             </tbody>
         </table>
     )
 }
 export default Table
 
-// skills={item.skills.map((itemSkill)=> { itemSkill.skill})

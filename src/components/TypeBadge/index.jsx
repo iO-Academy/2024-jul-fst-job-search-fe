@@ -3,5 +3,4 @@ const TypeBadge = ({jobType}) => {
         <span className="badge rounded-pill text-bg-primary">{jobType}</span>
     )
 }
-
 export default TypeBadge
