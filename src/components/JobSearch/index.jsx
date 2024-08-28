@@ -1,8 +1,15 @@
 import SkillsBadge from "../SkillsBadge/index.jsx";
 import button from "bootstrap/js/src/button.js";
 import './style.css'
-
+import {useState} from "react";
+// import {useEffect, useState} from "react";
 const JobSearch = () => {
+
+    const handleClick = (event) => {
+        console.log(event.target)
+    }
+
+    let query = ''
 
 
 
@@ -10,7 +17,8 @@ const JobSearch = () => {
         <div className={'backgroundPic container-fluid bg-secondary py-5 px-4'}>
             <div className={'container-fluid col-lg-7'}>
                 <h1 className={'text-white display-1 py-3'}>Find your perfect job</h1>
-                <input className={'col-12 rounded-2 border-0'} type={'text'} placeholder={'Keyword/Skill/Company Name'}/>
+                <form>
+                <input className={'col-12 rounded-2 border-0'} onChange={handleClick} type={'text'} placeholder={'Keyword/Skill/Company Name'} name={'searchTerm'} id={'searchTerm'}/>
                 <div className={'d-flex flex-row py-2'}>
                     <div className={'checkboxes container-fluid d-flex flex-wrap gap-1 p-1'}>
                         <div className={'form-check'}>
@@ -35,7 +43,8 @@ const JobSearch = () => {
                         </div>
                     </div>
                 </div>
-                <button className={'btn btn-primary fs-4 py-2'}>Search</button>
+                <button className={'btn btn-primary fs-4 py-2'} type={'submit'}>Search</button>
+                </form>
             </div>
         </div>
     )
