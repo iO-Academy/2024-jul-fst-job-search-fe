@@ -1,9 +1,10 @@
 import 'bootstrap'
 
 const Salary = ({salary}) => {
+
     return (
         <div>
-            <span>£{salary.toLocaleString()}</span>
+            {salary && <span>£{salary.toLocaleString()}</span>}
         </div>
     )
 }
