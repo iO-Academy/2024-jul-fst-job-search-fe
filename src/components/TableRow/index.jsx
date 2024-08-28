@@ -4,11 +4,10 @@ import Salary from "../Salary/index.jsx";
 import SkillsBadge from "../SkillsBadge/index.jsx";
 
 const TableRow = ({jobTitle, company, logo, contract, salary, skills}) => {
-    console.log(skills)
     return (
 
-        <tr>
-            <td className='container d-md-flex'>
+        <tr className='col'>
+            <td className=''>
                 <Company logo={logo} jobTitle={jobTitle} companyName={company}/>
             </td>
             <td>

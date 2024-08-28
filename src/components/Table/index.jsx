@@ -15,18 +15,19 @@ const Table = ({recentJobInfo}) => {
             <tbody>
             {
                 recentJobInfo.map((item) => {
-                    return (
-                        <TableRow
-                            key={item.id}
-                            jobTitle={item.job_title}
-                            company={item.company}
-                            contract={item.type}
-                            salary={item.salary}
-                            skills={item.skills}
-                            logo={item.logo}
-                        />
-                    )
-                })
+                        return (
+                            <TableRow
+                                key={item.id}
+                                jobTitle={item.job_title}
+                                company={item.company}
+                                contract={item.type}
+                                salary={item.salary}
+                                skills={item.skills}
+                                logo={item.logo}
+                            />
+                        )
+                    }
+                )
             }
             </tbody>
         </table>
