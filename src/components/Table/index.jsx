@@ -1,8 +1,9 @@
 import TableRow from "../TableRow/index.jsx";
 
-const Table = () => {
+const Table = ({recentJobInfo}) => {
+    console.log(recentJobInfo)
     return (
-        <table className={'table table-dark table-striped  col-md-6'}>
+        <table className={'table table-dark table-striped  col-md-8'}>
             <thead>
             <tr>
                 <th scope={'col'}>Job title / Company</th>
@@ -12,12 +13,23 @@ const Table = () => {
             </tr>
             </thead>
             <tbody>
-            <TableRow jobTitle={'Dev at Google'} contract={'full title'} salary={'£30,000'} skills={'React'} />
-            <TableRow jobTitle={'Dev at Facebook'} contract={'part-time'} salary={'£28,000'} skills={'PHP'}/>
-            <TableRow jobTitle={'Dev at Apple'} contract={'full title'} salary={'£100,000'} skills={'Being a genius'}/>
-            <TableRow jobTitle={'Dave at Google'} contract={'full title'} salary={'£30,000'} skills={'React'}/>
+            {
+                recentJobInfo.map((item) => {
+                    return (
+                    <TableRow jobTitle={item.job_title} company={item.company} logo={item.logo} contract={item.type} salary={item.salary || null} skills={item.skills.map((itemSkills)=> {
+                        return (
+                            itemSkills.skill + ' '
+                        )
+                    })}/>
+                    )
+                })
+
+            }
+
             </tbody>
         </table>
     )
 }
 export default Table
+
+// skills={item.skills.map((itemSkill)=> { itemSkill.skill})
