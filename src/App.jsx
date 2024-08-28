@@ -8,7 +8,7 @@ function App() {
     <>
       <Nav/>
       <JobListings />
-        <Footer/>
+      <Footer/>
     </>
   )
 }
