@@ -5,7 +5,7 @@ const Table = () => {
         <table className={'table table-dark table-striped  col-md-6'}>
             <thead>
             <tr>
-                <th scope={'col'}>Job title/Company</th>
+                <th scope={'col'}>Job title / Company</th>
                 <th scope={'col'}>Type</th>
                 <th scope={'col'}>Salary</th>
                 <th scope={'col'}>Skills</th>
