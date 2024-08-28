@@ -3,7 +3,7 @@ import TableRow from "../TableRow/index.jsx";
 
 const Table = ({recentJobInfo}) => {
     return (
-        <table className='table table-dark table-striped col-md-8 col-3'>
+        <table className='table table-dark table-striped ms-1 ms-md-0 table-sm'>
             <thead>
             <tr>
                 <th scope='col'>Job title / Company</th>

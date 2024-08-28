@@ -6,7 +6,7 @@ import SkillsBadge from "../SkillsBadge/index.jsx";
 const TableRow = ({jobTitle, company, logo, contract, salary, skills}) => {
     return (
 
-        <tr className='col'>
+        <tr scope='row'>
             <td className=''>
                 <Company logo={logo} jobTitle={jobTitle} companyName={company}/>
             </td>
