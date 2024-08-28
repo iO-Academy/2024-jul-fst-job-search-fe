@@ -17,11 +17,7 @@ const Table = () => {
             <TableRow jobTitle={'Dev at Apple'} contract={'full title'} salary={'£100,000'} skills={'Being a genius'}/>
             <TableRow jobTitle={'Dave at Google'} contract={'full title'} salary={'£30,000'} skills={'React'}/>
             </tbody>
-
         </table>
-
-
     )
 }
-
 export default Table
