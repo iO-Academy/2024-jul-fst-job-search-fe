@@ -1,13 +1,13 @@
 const Navbar = () => {
     return (
         <nav className={'navbar bg-light'}>
-            <div className={'container-fluid'}>
+            <div className={'container-fluid justify-content-between'}>
                 <a className={'navbar-brand'}>JobSearch</a>
-                <div className={'row col-md-4 d-none d-md-inline align-items-center'}>
-                    <a className={'col p-0 mx-1 text-center text-decoration-none link-dark'}>All Jobs</a>
-                    <a className={'col p-0 mx-1 text-center text-decoration-none link-secondary'}>Full time</a>
-                    <a className={'col p-0 mx-1 text-center text-decoration-none link-secondary'}>Part time</a>
-                    <a className={'col p-0 mx-1 text-center text-decoration-none link-secondary'}>Contract</a>
+                <div className={'row col-md-5 d-none d-md-inline text-center'}>
+                    <a className={'col p-0 mx-1 text-end text-decoration-none link-dark'}>All Jobs</a>
+                    <a className={'col p-0 mx-1 text-end text-decoration-none link-secondary'}>Full time</a>
+                    <a className={'col p-0 mx-1 text-end text-decoration-none link-secondary'}>Part time</a>
+                    <a className={'col p-0 mx-1 text-end text-decoration-none link-secondary'}>Contract</a>
                 </div>
                 <button className={'navbar-toggler border mb-2 d-md-none'} type={'button'} data-bs-toggle={'collapse'}
                 data-bs-target={'#navbarSupportedContent'}>
