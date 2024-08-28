@@ -1,8 +1,12 @@
-# React + Vite
+Job Listing Frontend Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+For this project we have been tasked with creating the front end of a website
+that uses an API to provide our information.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To build this front end we are using React as a library to demonstrate knowledge of component,
+useState, useEffect and lifting state, and we have been using Vite as a compiler.
+
+To style the website we have used Bootstrap as a framework.
+
+This is a team exercise, and we are working in a scrum, and we are working in an AGILE way.
