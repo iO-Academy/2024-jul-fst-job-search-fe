@@ -1,5 +1,4 @@
 import 'bootstrap'
-
 const Salary = ({salary}) => {
 
     return (
@@ -8,5 +7,4 @@ const Salary = ({salary}) => {
         </div>
     )
 }
-
 export default Salary

@@ -1,8 +1,6 @@
-const SkillsBadge = ({skillName}) => {
+const SkillsBadge = ({itemSkills}) => {
     return (
-        <div>
-            <span className="badge text-bg-info text-light">{skillName}</span>
-        </div>
+        <span className="badge text-bg-info text-light mx-1">{itemSkills}</span>
     )
 }
 
