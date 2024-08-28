@@ -14,7 +14,7 @@ const JobListings = () => {
         getRecentJobInfo()
     }, []);
     return (
-        <main className={'container col-12 col-md-7'}>
+        <main className='mx-auto container justify-content-center col-12 col-md-7 m-0'>
                 <Header />
                 <Table recentJobInfo={recentJobInfo} />
         </main>

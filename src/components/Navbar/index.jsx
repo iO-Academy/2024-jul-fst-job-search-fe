@@ -1,7 +1,7 @@
 const Navbar = () => {
     return (
         <nav className={'navbar bg-light'}>
-            <div className={'container-fluid justify-content-between'}>
+            <div className={'container justify-content-between'}>
                 <a className={'navbar-brand'}>JobSearch</a>
                 <div className={'row col-md-5 d-none d-md-inline text-center'}>
                     <a className={'col p-0 mx-1 text-end text-decoration-none link-dark'}>All Jobs</a>
