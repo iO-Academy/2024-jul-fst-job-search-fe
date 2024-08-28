@@ -6,7 +6,8 @@ function App() {
 
   return (
       <>
-          <JobDescriptionModal id={300}/>
+
+          <JobDescriptionModal id={70}/>
       </>
   )
 }
