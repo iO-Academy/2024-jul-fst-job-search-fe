@@ -1,9 +1,11 @@
 import TableRow from "../TableRow/index.jsx";
+import SkillsBadge from "../SkillsBadge/index.jsx";
+import TypeBadge from "../TypeBadge/index.jsx";
 
 const Table = ({recentJobInfo}) => {
     console.log(recentJobInfo)
     return (
-        <table className={'table table-dark table-striped  col-md-8'}>
+        <table className={'table table-dark table-striped col-md-8'}>
             <thead>
             <tr>
                 <th scope={'col'}>Job title / Company</th>
@@ -16,9 +18,13 @@ const Table = ({recentJobInfo}) => {
             {
                 recentJobInfo.map((item) => {
                     return (
-                    <TableRow jobTitle={item.job_title} company={item.company} logo={item.logo} contract={item.type} salary={item.salary || null} skills={item.skills.map((itemSkills)=> {
+                    <TableRow jobTitle={item.job_title}
+                              company={item.company} logo={item.logo}
+                              contract={<TypeBadge jobType={item.type}/>}
+                              salary={item.salary}
+                              skills={item.skills.map((itemSkills)=> {
                         return (
-                            itemSkills.skill + ' '
+                            <SkillsBadge itemSkills={itemSkills.skill}/>
                         )
                     })}/>
                     )
