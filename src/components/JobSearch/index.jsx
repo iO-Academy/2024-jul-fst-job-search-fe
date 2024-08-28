@@ -3,11 +3,14 @@ import button from "bootstrap/js/src/button.js";
 import './style.css'
 
 const JobSearch = () => {
+
+
+
     return (
         <div className={'backgroundPic container-fluid bg-secondary py-5 px-4'}>
             <div className={'container-fluid col-lg-7'}>
                 <h1 className={'text-white display-1 py-3'}>Find your perfect job</h1>
-                <input className={'col-12 rounded-2 border-0'} type={'text'}/>
+                <input className={'col-12 rounded-2 border-0'} type={'text'} placeholder={'Keyword/Skill/Company Name'}/>
                 <div className={'d-flex flex-row py-2'}>
                     <div className={'checkboxes container-fluid d-flex flex-wrap gap-1 p-1'}>
                         <div className={'form-check'}>
