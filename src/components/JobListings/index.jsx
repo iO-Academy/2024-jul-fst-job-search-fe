@@ -13,8 +13,6 @@ const JobListings = () => {
         }
         getRecentJobInfo()
     }, []);
-
-
     return (
         <main className={'container col-12 col-md-7'}>
                 <Header />
