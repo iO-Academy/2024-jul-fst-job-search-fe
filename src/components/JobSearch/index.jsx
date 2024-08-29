@@ -1,4 +1,3 @@
-import SkillsBadge from "../SkillsBadge/index.jsx";
 import './style.css'
 import {useState, useEffect} from "react";
 const JobSearch = ({setQuery, setHeader, setViewButton}) => {
@@ -38,9 +37,6 @@ const JobSearch = ({setQuery, setHeader, setViewButton}) => {
                     <div className='container d-flex align-items-start gap-1 p-1 justify-content-end'>
                         <small className='text-nowrap text-end text-white'>Popular skills:</small>
                         <div className='d-flex flex-wrap gap-1'>
-                            <SkillsBadge skillName='PHP'/>
-                            <SkillsBadge skillName='React'/>
-                            <SkillsBadge skillName='Laravel'/>
                         </div>
                     </div>
                 </div>

@@ -1,10 +1,8 @@
 import 'bootstrap'
-const Salary = ({salary}) => {
 
+const Salary = ({salary}) => {
     return (
-        <div>
-            {salary && <span>£{salary.toLocaleString()}</span>}
-        </div>
+        salary ? <span>£{salary.toLocaleString()}</span> : <span>Competitive</span>
     )
 }
 export default Salary

@@ -17,7 +17,7 @@ const Table = ({jobInfo}) => {
                 </thead>
                 <tbody>
                 {
-                    jobInfo?.map((item) => {
+                    jobInfo.map((item) => {
                             return (
                                 <TableRow
                                     key={item.id}
