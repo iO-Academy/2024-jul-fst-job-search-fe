@@ -1,12 +1,21 @@
+import {useState} from "react";
 
-const SkillsBadges = ({itemSkills}) => {
+const SkillsBadges = ({itemSkills, setSkillQuery}) => {
+
     return (
         <>
             {
                 itemSkills?.map((skill) => {
+
+                    const constructSkillQuery = () => {
+                        setSkillQuery(`http://0.0.0.0:8080/jobs?skill=` + skill.id)
+
+                    }
+
                         return (
-                            <span key={skill.id} className="badge text-bg-info text-light mx-1">{skill.skill}</span>
-                        )
+                            <span key={skill.id} onClick={constructSkillQuery} className="badge text-bg-info text-light mx-1">{skill.skill}</span>
+                    )
+
                     }
                 )
             }
