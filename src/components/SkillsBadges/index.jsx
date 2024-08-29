@@ -8,7 +8,7 @@ const SkillsBadges = ({itemSkills, setSkillQuery}) => {
                 itemSkills?.map((skill) => {
 
                     const constructSkillQuery = () => {
-                        setSkillQuery(`http://0.0.0.0:8080/jobs?skill=` + skill.id)
+                        setSkillQuery(`&skill=` + skill.id)
 
                     }
 
