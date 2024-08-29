@@ -18,7 +18,7 @@ const [skills, setSkills] = useState([])
     console.log(skills)
 
     return (
-        <div className='text-bg-primary py-3 d-flex justify-content-center flex-column px-4 col-md-12'>
+        <div className='text-bg-primary py-3 d-flex flex-column px-4 col-md-12'>
                 <div className='d-flex justify-content-center mx-2 col-md-6'>
                     <h2 className='text-black px-0' >Browse skills</h2>
                 </div>
