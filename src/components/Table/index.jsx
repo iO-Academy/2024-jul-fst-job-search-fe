@@ -7,7 +7,7 @@ const Table = ({jobInfo}) => {
     return (
         <div>
             <table className='table table-dark table-striped table-sm col-12'>
-                <thead className=''>
+                <thead>
                 <tr>
                     <th scope='col'>Job title / Company</th>
                     <th scope='col'>Type</th>
