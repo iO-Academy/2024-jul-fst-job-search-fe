@@ -8,7 +8,7 @@ const SkillsBadges = ({itemSkills, setSkillQuery}) => {
                 itemSkills?.map((skill) => {
 
                     const constructSkillQuery = () => {
-                        setSkillQuery(`&skill=` + skill.id)
+                        setSkillQuery(`skill=` + skill.id)
 
                     }
 

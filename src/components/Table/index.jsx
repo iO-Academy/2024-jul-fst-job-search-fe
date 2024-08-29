@@ -2,7 +2,7 @@ import TableRow from "../TableRow/index.jsx";
 import JobDescriptionModal from "../JobDescriptionModal/index.jsx";
 import {useState} from "react";
 
-const Table = ({jobInfo, skillQuery, setSkillQuery}) => {
+const Table = ({jobInfo, skillQuery, setSkillQuery, setUrlSuffix}) => {
     const [modalID, setModalID] = useState(1)
 
     return (
