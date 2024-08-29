@@ -7,7 +7,7 @@ const TableRow = ({jobTitle, company, logo, contract, salary, skills}) => {
     return (
 
         <tr scope='row'>
-            <td className=''>
+            <td>
                 <Company logo={logo} jobTitle={jobTitle} companyName={company}/>
             </td>
             <td>
