@@ -4,8 +4,6 @@ import {useState, useEffect} from "react";
 const JobSearch = ({setQuery, setHeader, setViewButton}) => {
 
     const [input, setInput] = useState('')
-    // const [query, setQuery] = useState('')
-    // const [queryReturn, setQueryReturn] = useState([])
 
     const takeInput = (event) => {
         setInput(event.target.value)
@@ -16,16 +14,6 @@ const JobSearch = ({setQuery, setHeader, setViewButton}) => {
         setHeader('Search results')
         setViewButton('View most recent jobs ->')
     }
-
-    // useEffect (() => {
-    //     const getData = async () => {
-    //         let response = await fetch(query)
-    //         let data = await response.json()
-    //         setQueryReturn(data)
-    //     }
-    //     getData()
-    // },[query])
-
 
     return (
         <div className={'backgroundPic container-fluid bg-secondary py-5 px-4'}>
@@ -58,7 +46,6 @@ const JobSearch = ({setQuery, setHeader, setViewButton}) => {
                 </div>
                 <button className={'btn btn-primary fs-4 py-2'} onClick={constructQuery}>Search</button>
             </div>
-        {/*    TABLE GOES HERE*/}
         </div>
     )
 }
