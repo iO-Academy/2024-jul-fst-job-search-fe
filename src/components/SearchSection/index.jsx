@@ -3,35 +3,30 @@ import {useState} from "react";
 
 const SearchSection = ({getSelected, setSelected}) => {
     const [checkBoxValue, setCheckBoxValue] = useState(
-        {
-        'Full time':false,
-        'Part time':false,
-        'Contract':false
-        }
+            {'Full time': false,
+            'Part time': false,
+            'Contract': false
+            }
     )
-    console.log(checkBoxValue)
-    // const [fullTime, setFullTime] = useState(false)
-    // console.log(fullTime)
-    // const [partTime, setPartTime] = useState(false)
-    // console.log(partTime)
-    // const [contract, setContract] = useState(false)
-    // console.log(contract)
-    //
-    // const [finalCheckbox, setFinalCheckbox] = useState('')
-    //
-    // setFinalCheckbox('&type[]='+fullTime+'&type[]='+partTime+'&type[]='+contract)
-    //
-    // if (fullTime) {
-    //     setSelected('&type[=Full time')
-    // }
 
+    if (checkBoxValue['Contract'] && checkBoxValue["Full time"] && checkBoxValue['Part time']) {
+        setSelected('&type[]=Contract&type[]=Full time&type[]=Part time')
+    } else if (checkBoxValue['Contract'] && checkBoxValue["Full time"]){
+        setSelected('&type[]=Contract&type[]=Full time')
+    } else if (checkBoxValue["Full time"] && checkBoxValue['Part time']) {
+        setSelected('&type[]=Full time&type[]=Part time')
+    } else if (checkBoxValue['Contract'] && checkBoxValue['Part time']) {
+        setSelected('&type[]=Contract&type[]=Part time')
+    } else if (checkBoxValue['Contract']) {
+        setSelected('&type[]=Contract')
+    } else if (checkBoxValue['Full time']) {
+        setSelected('&type[]=Full time')
+    } else if (checkBoxValue['Part time']) {
+        setSelected('&type[]=Part time')
+    }
 
     return (
-        <div>
-            <FilterCheckbox jobType='Full time' getSelected={checkBoxValue} setSelected={setCheckBoxValue}/>
-            <FilterCheckbox jobType='Part time' getSelected={checkBoxValue} setSelected={setCheckBoxValue}/>
-            <FilterCheckbox jobType='Contract' getSelected={checkBoxValue} setSelected={setCheckBoxValue}/>
-        </div>
+            <FilterCheckbox  jobType={checkBoxValue} setTypeBoolean={setCheckBoxValue}/>
     )
 }
 export default SearchSection

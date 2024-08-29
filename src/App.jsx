@@ -3,13 +3,35 @@ import Nav from "./components/Navbar/index.jsx";
 import Footer from "./components/Footer/index.jsx";
 import {useState} from "react";
 import SearchSection from "./components/SearchSection/index.jsx";
+import {useEffect} from "react";
 
 function App() {
     const [navBarSelected, setNavBarSelected] = useState('')
-    const [filterBarSelected, setFilterBarSelected] = useState('')
-    console.log(filterBarSelected)
-    console.log(navBarSelected)
+    const [navBarSearchUrl, setNavBarSearchUrl] = useState('')
 
+    useEffect(() => {
+            if (navBarSelected === 'Full time') {
+                setNavBarSearchUrl('')
+                setNavBarSearchUrl('?search=type[]Full time')
+            }
+            else if (navBarSelected === 'Part time') {
+                setNavBarSearchUrl('')
+                setNavBarSearchUrl('?search=type[]Part time')
+            }
+            else if (navBarSelected === 'Contract') {
+                setNavBarSearchUrl('')
+                setNavBarSearchUrl('?search=type[]Contract')
+            }
+            else if (navBarSelected === 'All jobs') {
+                setNavBarSearchUrl('')
+                setNavBarSearchUrl('')
+            }
+    }, [navBarSelected]);
+
+
+    const [filterBarSelected, setFilterBarSelected] = useState('')
+    console.log(navBarSelected)
+    console.log(navBarSearchUrl)
     return (
         <>
             <Nav getSelected={navBarSelected} setSelected={setNavBarSelected}/>
