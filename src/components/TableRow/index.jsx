@@ -11,10 +11,10 @@ const TableRow = ({jobTitle, company, logo, contract, salary, skills}) => {
                 <Company logo={logo} jobTitle={jobTitle} companyName={company}/>
             </td>
             <td>
-                <TypeBadge jobType={contract} />
+                <TypeBadge jobType={contract}/>
             </td>
-            {salary ? <td><Salary salary={salary} /></td>
-                :<td className='text-center'>competitive</td>}
+            {salary ? <td><Salary salary={salary}/></td>
+                : <td className='text-center'>competitive</td>}
             <td className='fs-6'>
                 <SkillsBadge itemSkills={skills}/>
             </td>

@@ -1,7 +1,6 @@
 import TableRow from "../TableRow/index.jsx";
 
-
-const Table = ({recentJobInfo}) => {
+const Table = ({jobInfo}) => {
     return (
         <table className='table table-dark table-striped ms-1 ms-md-0 table-sm'>
             <thead>
@@ -14,7 +13,7 @@ const Table = ({recentJobInfo}) => {
             </thead>
             <tbody>
             {
-                recentJobInfo.map((item) => {
+                jobInfo.map((item) => {
                         return (
                             <TableRow
                                 key={item.id}
