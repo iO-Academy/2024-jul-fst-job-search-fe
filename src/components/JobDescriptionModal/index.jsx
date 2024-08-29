@@ -1,6 +1,6 @@
 import TypeBadge from "../TypeBadge/index.jsx";
 import Salary from "../Salary/index.jsx";
-import SkillsBadge from "../SkillsBadge/index.jsx";
+import SkillsBadges from "../SkillsBadges/index.jsx";
 import {useEffect, useState} from "react";
 
 const JobDescriptionModal = ({id}) => {
@@ -29,10 +29,10 @@ const JobDescriptionModal = ({id}) => {
                     <div className={'modal-body'}>
                         <div className='container d-flex p-4 gap-2 align-items-center bg-primary mb-4'>
                             <p className='text-bg-primary m-0'>{jobInfo.job_title}</p>
-                            {jobInfo.type ? <TypeBadge jobType={jobInfo.type} bgColor={'bg-success'}/> : null}
+                            {jobInfo.type && <TypeBadge jobType={jobInfo.type} bgColor={'bg-success'}/>}
                         </div>
                         <div className='container d-flex m-1 align-items-center'>
-                            <img className='float-start img-responsive me-1' width={40} height={40}
+                            <img className='float-start img-responsive me-1' width='40' height='40'
                                  src={jobInfo.logo}/>
                             <p className='m-0'>{jobInfo.company}</p>
                         </div>
@@ -63,10 +63,10 @@ const JobDescriptionModal = ({id}) => {
                                     {jobInfo.type ?? 'N/A'}
                                 </div>
                                 <div className='col-3'>
-                                    {jobInfo.posted && jobInfo.posted.split("-").reverse().join("/")}
+                                    {jobInfo.posted?.split("-").reverse().join("/")}
                                 </div>
                                 <div className='col-3 d-flex flex-wrap gap-1'>
-                                    <SkillsBadge itemSkills={jobInfo.skills}/>
+                                    <SkillsBadges itemSkills={jobInfo.skills}/>
                                 </div>
                             </div>
                             <div className='mt-1'>

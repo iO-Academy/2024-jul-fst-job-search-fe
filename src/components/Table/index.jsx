@@ -21,8 +21,8 @@ const Table = ({jobInfo}) => {
                             return (
                                 <TableRow
                                     key={item.id}
-                                    id={item.id}
-                                    details={setModalID}
+                                    jobId={item.id}
+                                    jobIdSelector={setModalID}
                                     jobTitle={item.job_title}
                                     company={item.company}
                                     contract={item.type}

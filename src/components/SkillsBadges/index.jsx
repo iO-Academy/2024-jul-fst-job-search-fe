@@ -1,5 +1,5 @@
 
-const SkillsBadge = ({itemSkills}) => {
+const SkillsBadges = ({itemSkills}) => {
     return (
         <>
             {
@@ -13,4 +13,4 @@ const SkillsBadge = ({itemSkills}) => {
         </>
     )
 }
-export default SkillsBadge
+export default SkillsBadges
