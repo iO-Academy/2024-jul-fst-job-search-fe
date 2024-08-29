@@ -1,43 +1,44 @@
 import TableRow from "../TableRow/index.jsx";
-import SkillsBadge from "../SkillsBadge/index.jsx";
-import TypeBadge from "../TypeBadge/index.jsx";
-import Salary from "../Salary/index.jsx";
+import JobDescriptionModal from "../JobDescriptionModal/index.jsx";
+import {useState} from "react";
 
-const Table = ({recentJobInfo}) => {
-    console.log(recentJobInfo)
+const Table = ({jobInfo}) => {
+    const [modalID, setModalID] = useState(1)
     return (
-        <table className={'table table-dark table-striped col-md-8'}>
-            <thead>
-            <tr>
-                <th scope={'col'}>Job title / Company</th>
-                <th scope={'col'}>Type</th>
-                <th scope={'col'}>Salary</th>
-                <th scope={'col'}>Skills</th>
-            </tr>
-            </thead>
-            <tbody>
-            {
-                recentJobInfo.map((item) => {
-                    return (
-                        <TableRow
-                            key={item.id}
-                            jobTitle={item.job_title}
-                            company={item.company} logo={item.logo}
-                            contract={<TypeBadge jobType={item.type}/>}
-                            salary={item.salary && <Salary salary={item.salary}/>}
-                            skills={item.skills.map((itemSkills) => {
-                                return (
-                                    <SkillsBadge
-                                        key={itemSkills.id}
-                                        itemSkills={itemSkills.skill}/>
-                                )
-                            })}/>
+        <div>
+            <table className='table table-dark table-striped ms-1 ms-md-0 table-sm'>
+                <thead>
+                <tr>
+                    <th scope='col'>Job title / Company</th>
+                    <th scope='col'>Type</th>
+                    <th scope='col'>Salary</th>
+                    <th scope='col'>Skills</th>
+                </tr>
+                </thead>
+                <tbody>
+                {
+                    jobInfo?.map((item) => {
+                            return (
+                                <TableRow
+                                    key={item.id}
+                                    jobId={item.id}
+                                    jobIdSelector={setModalID}
+                                    jobTitle={item.job_title}
+                                    company={item.company}
+                                    contract={item.type}
+                                    salary={item.salary}
+                                    skills={item.skills}
+                                    logo={item.logo}
+                                />
+                            )
+                        }
                     )
-                })
-            }
-            </tbody>
-        </table>
-    )
+                }
+                </tbody>
+            </table>
+            <JobDescriptionModal id={modalID}/>
+</div>
+)
 }
 export default Table
 
