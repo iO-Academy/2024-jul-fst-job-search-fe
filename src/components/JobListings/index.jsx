@@ -3,6 +3,7 @@ import Table from "../Table/index.jsx";
 import {useEffect, useState} from "react";
 
 const JobListings = () => {
+    const [headerText, setHeaderText] = useState('Most recent jobs')
     const [jobInfo, setJobInfo] = useState([])
     useEffect(() => {
         const getJobInfo = async () => {
@@ -14,7 +15,7 @@ const JobListings = () => {
     }, []);
     return (
         <main className='mx-auto container justify-content-center col-12 col-md-7 p-0'>
-                <Header headerText={'Most recent jobs'} />
+                <Header headerText={headerText} />
                 <Table jobInfo={jobInfo} />
         </main>
     )
