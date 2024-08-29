@@ -12,21 +12,28 @@ function App() {
     useEffect(() => {
             if (navBarSelected === 'Full time') {
                 setNavBarSearchUrl('')
-                setNavBarSearchUrl('?search=type[]Full time')
+                setNavBarSearchUrl('jobs?type[]=Full time')
             }
             else if (navBarSelected === 'Part time') {
                 setNavBarSearchUrl('')
-                setNavBarSearchUrl('?search=type[]Part time')
+                setNavBarSearchUrl('jobs?type[]=Part time')
             }
             else if (navBarSelected === 'Contract') {
                 setNavBarSearchUrl('')
-                setNavBarSearchUrl('?search=type[]Contract')
+                setNavBarSearchUrl('jobs?type[]=Contract')
             }
             else if (navBarSelected === 'All jobs') {
                 setNavBarSearchUrl('')
-                setNavBarSearchUrl('')
+                setNavBarSearchUrl('jobs')
             }
     }, [navBarSelected]);
+    const [fetchURLSuffix, setFetchURLSuffix] = useState('jobs/recent')
+
+    useEffect(() => {
+        if (navBarSearchUrl) {
+            setFetchURLSuffix(navBarSearchUrl)
+        }
+    }, [navBarSearchUrl]);
 
 
     const [filterBarSelected, setFilterBarSelected] = useState('')
@@ -36,7 +43,7 @@ function App() {
         <>
             <Nav getSelected={navBarSelected} setSelected={setNavBarSelected}/>
             <SearchSection getSelected={filterBarSelected} setSelected={setFilterBarSelected}/>
-            <JobListings/>
+            <JobListings urlSuffix={fetchURLSuffix}/>
             <Footer/>
         </>
     )
