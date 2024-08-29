@@ -1,11 +1,11 @@
 import SkillsBadge from "../SkillsBadge/index.jsx";
 import './style.css'
 import {useState, useEffect} from "react";
-const JobSearch = () => {
+const JobSearch = ({setQuery, setHeader, setViewButton}) => {
 
     const [input, setInput] = useState('')
-    const [query, setQuery] = useState('')
-    const [queryReturn, setQueryReturn] = useState([])
+    // const [query, setQuery] = useState('')
+    // const [queryReturn, setQueryReturn] = useState([])
 
     const takeInput = (event) => {
         setInput(event.target.value)
@@ -13,16 +13,18 @@ const JobSearch = () => {
 
     const constructQuery = () => {
         setQuery('http://0.0.0.0:8080/jobs?search='+input)
+        setHeader('Search results')
+        setViewButton('View most recent jobs ->')
     }
 
-    useEffect (() => {
-        const getData = async () => {
-            let response = await fetch(query)
-            let data = await response.json()
-            setQueryReturn(data)
-        }
-        getData()
-    },[query])
+    // useEffect (() => {
+    //     const getData = async () => {
+    //         let response = await fetch(query)
+    //         let data = await response.json()
+    //         setQueryReturn(data)
+    //     }
+    //     getData()
+    // },[query])
 
 
     return (
