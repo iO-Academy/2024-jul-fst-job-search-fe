@@ -1,7 +1,7 @@
 import Company from "../Company/index.jsx";
 import TypeBadge from "../TypeBadge/index.jsx";
 import Salary from "../Salary/index.jsx";
-import SkillsBadge from "../SkillsBadge/index.jsx";
+import SkillsBadges from "../SkillsBadges/index.jsx";
 
 const TableRow = ({jobTitle, company, logo, contract, salary, skills}) => {
     return (
@@ -11,12 +11,12 @@ const TableRow = ({jobTitle, company, logo, contract, salary, skills}) => {
                 <Company logo={logo} jobTitle={jobTitle} companyName={company}/>
             </td>
             <td>
-                <TypeBadge jobType={contract}/>
+                <TypeBadge jobType={contract} bgColor={'bg-primary'}/>
             </td>
             {salary ? <td><Salary salary={salary}/></td>
                 : <td className='text-center'>competitive</td>}
             <td className='fs-6'>
-                <SkillsBadge itemSkills={skills}/>
+                <SkillsBadges itemSkills={skills}/>
             </td>
         </tr>
     )
