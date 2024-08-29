@@ -6,8 +6,8 @@ const Table = ({jobInfo}) => {
     const [modalID, setModalID] = useState(1)
     return (
         <div>
-            <table className='table table-dark table-striped ms-1 ms-md-0 table-sm'>
-                <thead>
+            <table className='table table-dark table-striped table-sm col-12'>
+                <thead className=''>
                 <tr>
                     <th scope='col'>Job title / Company</th>
                     <th scope='col'>Type</th>
