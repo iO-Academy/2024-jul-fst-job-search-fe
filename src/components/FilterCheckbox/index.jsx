@@ -1,7 +1,7 @@
 import {useState} from "react";
 const FilterCheckbox = ({jobType, getSelected, setSelected}) => {
     const handleChange = () => {
-        setSelected(!getSelected)
+        setSelected({...getSelected, jobType: !getSelected.jobType})
     }
     return (
         <div>
