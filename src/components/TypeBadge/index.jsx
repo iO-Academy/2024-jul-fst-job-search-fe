@@ -1,7 +1,6 @@
-const TypeBadge = ({jobType}) => {
+const TypeBadge = ({jobType, bgColor = '', textColor = ''}) => {
     return (
-        <span className="badge rounded-pill text-bg-primary">{jobType}</span>
+        <span className={"badge rounded-pill " + bgColor + textColor}>{jobType}</span>
     )
 }
-
 export default TypeBadge
