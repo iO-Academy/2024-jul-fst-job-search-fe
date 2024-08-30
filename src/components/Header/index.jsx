@@ -8,7 +8,6 @@ const Header = ({header, setHeader, viewButton, setQuery, setViewButton}) => {
 
     const handleClick = () => {
         viewButton === 'View most recent jobs ->' && returnToRecent()
-        console.log(header)
     }
 
     return (
