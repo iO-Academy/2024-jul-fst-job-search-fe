@@ -1,8 +1,9 @@
+import './App.css'
+import JobSearch from "./components/JobSearch/index.jsx";
+import {useState} from "react";
 import JobListings from "./components/JobListings/index.jsx";
 import Nav from "./components/Navbar/index.jsx";
 import Footer from "./components/Footer/index.jsx";
-import {useState} from "react";
-import SearchSection from "./components/SearchSection/index.jsx";
 import {useEffect} from "react";
 
 function App() {
@@ -12,6 +13,11 @@ function App() {
     const [filterBarSelected, setFilterBarSelected] = useState('')
     const [skillQuery, setSkillQuery] = useState('')
     const [typeQuery, setTypeQuery] = useState('')
+    const [checkBoxUrl, setCheckBoxUrl] = useState('')
+    const [query, setQuery] = useState('')
+
+    const [header, setHeader] = useState('Most recent jobs')
+    const [viewButton, setViewButton] = useState('View all jobs ->')
 
 
     useEffect(() => {
@@ -34,9 +40,9 @@ function App() {
                 setNavBarSearchUrl('jobs')
             }
 
-    }, [navBarSelected, typeQuery]);
+    }, [navBarSelected, typeQuery, query]);
 
-
+console.log(filterBarSelected)
     useEffect(() => {
         if (navBarSearchUrl) {
             setNavBarUrlSuffix(navBarSearchUrl)
@@ -46,8 +52,9 @@ function App() {
     return (
         <>
             <Nav getSelected={navBarSelected} setSelected={setNavBarSelected}/>
-            <SearchSection filterBarSelected={filterBarSelected} setFilterBarSelected={setFilterBarSelected}/>
-            <JobListings  navBarUrlSuffix={navBarUrlSuffix} setNavBarUrlSuffix={setNavBarUrlSuffix} skillQuery={skillQuery} setSkillQuery={setSkillQuery} typeQuery={typeQuery} setTypeQuery={setTypeQuery}/>
+            <JobSearch setCheckBoxUrl={setCheckBoxUrl} checkBoxUrl={checkBoxUrl} setQuery={setQuery} setHeader={setHeader} setViewButton={setViewButton} setFilterBarSelected={setFilterBarSelected} filterBarSelected={filterBarSelected}/>
+            <JobListings setQuery={setQuery} query={query} header={header} setHeader={setHeader} viewButton={viewButton}
+                          setViewButton={setViewButton} navBarUrlSuffix={navBarUrlSuffix} setNavBarUrlSuffix={setNavBarUrlSuffix} skillQuery={skillQuery} setSkillQuery={setSkillQuery} typeQuery={typeQuery} setTypeQuery={setTypeQuery}/>
             <Footer/>
         </>
     )
