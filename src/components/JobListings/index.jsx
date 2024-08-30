@@ -4,19 +4,19 @@ import {useEffect, useState} from "react";
 
 const JobListings = ({setQuery, query, setHeader, header, viewButton, setViewButton}) => {
 
-    const [recentJobInfo, setRecentJobInfo] = useState([])
+    const [jobSearchResults, setJobSearchResults] = useState([])
     useEffect(() => {
-        const getRecentJobInfo = async () => {
+        const JobInfo = async () => {
             const response = await fetch(query)
             const data = await response.json()
-            setRecentJobInfo(data)
+            setJobSearchResults(data)
         }
-        getRecentJobInfo()
+        JobInfo()
     }, [query]);
     return (
         <main className='container col-12 col-md-7'>
                 <Header setQuery={setQuery} header={header} setHeader={setHeader} viewButton={viewButton} setViewButton={setViewButton}/>
-                <Table jobInfo={recentJobInfo} />
+                <Table jobInfo={jobSearchResults} />
         </main>
     )
 }

@@ -1,4 +1,3 @@
-import 'bootstrap'
 import './App.css'
 import JobSearch from "./components/JobSearch/index.jsx";
 import {useState} from "react";

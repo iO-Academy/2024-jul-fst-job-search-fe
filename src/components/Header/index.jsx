@@ -4,8 +4,8 @@ const Header = ({header, setHeader, viewButton, setQuery, setViewButton}) => {
         setHeader('Most recent jobs')
         setQuery('http://0.0.0.0:8080/jobs/recent')
         setViewButton('View all jobs ->')
-
     }
+
     const handleClick = () => {
         viewButton === 'View most recent jobs ->' && returnToRecent()
     }

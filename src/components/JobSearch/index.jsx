@@ -1,5 +1,6 @@
 import './style.css'
 import {useState, useEffect} from "react";
+import CheckBox from "../CheckBox/index.jsx";
 const JobSearch = ({setQuery, setHeader, setViewButton}) => {
 
     const [input, setInput] = useState('')
@@ -21,24 +22,18 @@ const JobSearch = ({setQuery, setHeader, setViewButton}) => {
                 <input className='col-12 rounded-2 border-0' onChange={takeInput} type='text' placeholder='Keyword/Skill/Company Name' name='searchTerm' id='searchTerm'/>
                 <div className='d-flex flex-row py-2'>
                     <div className='checkboxes container-fluid d-flex flex-wrap gap-1 p-1'>
-                        <div className='form-check'>
-                            <input className='checkbox form-check-input' type='checkbox'/>
-                            <label className='form-check-label text-nowrap text-white'>Full time</label>
-                        </div>
-                        <div className='form-check'>
-                            <input className='checkbox form-check-input' type='checkbox'/>
-                            <label className='form-check-label text-nowrap text-white'>Part Time</label>
-                        </div>
-                        <div className='form-check'>
-                            <input className='checkbox form-check-input' type='checkbox'/>
-                            <label className='form-check-label text-nowrap text-white'>Contract</label>
-                        </div>
+                        <CheckBox label={'Full time'}/>
+                        <CheckBox label={'Part time'}/>
+                        <CheckBox label={'Contract'}/>
                     </div>
                     <div className='container d-flex align-items-start gap-1 p-1 justify-content-end'>
                         <small className='text-nowrap text-end text-white'>Popular skills:</small>
                         <div className='d-flex flex-wrap gap-1'>
                         </div>
+
                     </div>
+
+
                 </div>
                 <button className='btn btn-primary fs-4 py-2' onClick={constructQuery}>Search</button>
             </div>
