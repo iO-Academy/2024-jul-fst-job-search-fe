@@ -8,43 +8,51 @@ import {useEffect} from "react";
 function App() {
     const [navBarSelected, setNavBarSelected] = useState('')
     const [navBarSearchUrl, setNavBarSearchUrl] = useState('')
+    const [navBarUrlSuffix, setNavBarUrlSuffix] = useState('')
+    const [filterBarSelected, setFilterBarSelected] = useState('')
+    const [skillQuery, setSkillQuery] = useState('')
+
+
 
     useEffect(() => {
             if (navBarSelected === 'Full time') {
                 setNavBarSearchUrl('')
-                setNavBarSearchUrl('type[]=Full time')
+                setSkillQuery('')
+                setNavBarSearchUrl('jobs?type[]=Full time')
             }
             else if (navBarSelected === 'Part time') {
                 setNavBarSearchUrl('')
-                setNavBarSearchUrl('type[]=Part time')
+                setSkillQuery('')
+                setNavBarSearchUrl('jobs?type[]=Part time')
             }
             else if (navBarSelected === 'Contract') {
                 setNavBarSearchUrl('')
-                setNavBarSearchUrl('type[]=Contract')
+                setSkillQuery('')
+                setNavBarSearchUrl('jobs?type[]=Contract')
             }
             else if (navBarSelected === 'All jobs') {
                 setNavBarSearchUrl('')
+                setSkillQuery('')
                 setNavBarSearchUrl('jobs')
             }
     }, [navBarSelected]);
 
-    const [fetchURLSuffix, setFetchURLSuffix] = useState('')
 
     useEffect(() => {
         if (navBarSearchUrl) {
-            setFetchURLSuffix(navBarSearchUrl)
+            setNavBarUrlSuffix(navBarSearchUrl)
         }
     }, [navBarSearchUrl]);
 
 
-    const [filterBarSelected, setFilterBarSelected] = useState('')
     console.log(navBarSelected)
     console.log(navBarSearchUrl)
+
     return (
         <>
             <Nav getSelected={navBarSelected} setSelected={setNavBarSelected}/>
             <SearchSection getSelected={filterBarSelected} setSelected={setFilterBarSelected}/>
-            <JobListings urlSuffix={fetchURLSuffix} setUrlSuffix={setFetchURLSuffix}/>
+            <JobListings  navBarUrlSuffix={navBarUrlSuffix} setNavBarUrlSuffix={setNavBarUrlSuffix} skillQuery={skillQuery} setSkillQuery={setSkillQuery}/>
             <Footer/>
         </>
     )

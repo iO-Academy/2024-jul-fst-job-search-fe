@@ -1,5 +1,6 @@
 import FilterCheckbox from "../FilterCheckbox/index.jsx";
 import {useState} from "react";
+import PopularSkills from "../PopularSkills/index.jsx";
 
 const SearchSection = ({getSelected, setSelected}) => {
     const [checkBoxValue, setCheckBoxValue] = useState(
@@ -26,7 +27,10 @@ const SearchSection = ({getSelected, setSelected}) => {
     }
 
     return (
+        <>
             <FilterCheckbox  jobType={checkBoxValue} setTypeBoolean={setCheckBoxValue}/>
+            <PopularSkills />
+        </>
     )
 }
 export default SearchSection

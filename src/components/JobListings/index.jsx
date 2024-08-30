@@ -2,8 +2,7 @@ import Header from "../Header/index.jsx";
 import Table from "../Table/index.jsx";
 import {useEffect, useState} from "react";
 
-const JobListings = ({urlSuffix, setUrlSuffix}) => {
-    const [skillQuery, setSkillQuery] = useState('')
+const JobListings = ({navBarUrlSuffix, setNavBarUrlSuffix, skillQuery, setSkillQuery}) => {
     console.log(skillQuery)
 
     const [urlBuilder, setUrlBuilder] = useState('jobs/recent')
@@ -12,28 +11,31 @@ const JobListings = ({urlSuffix, setUrlSuffix}) => {
     const [jobInfo, setJobInfo] = useState([])
 
     useEffect(() => {
-        if (urlSuffix && skillQuery){
-            setUrlBuilder('jobs?'+urlSuffix+'&'+skillQuery)
-        }    else if (urlSuffix && !skillQuery) {
+
+        if (navBarUrlSuffix && skillQuery){
+            setUrlBuilder(navBarUrlSuffix+'&'+skillQuery)
+        }
+        else if (navBarUrlSuffix && !skillQuery) {
             setSkillQuery('')
-            setUrlBuilder('jobs?'+urlSuffix)
-        } else if (skillQuery && !urlSuffix) {
+            setUrlBuilder(navBarUrlSuffix)
+        }
+        else if (skillQuery && !navBarUrlSuffix) {
             setUrlBuilder('jobs?'+skillQuery)
         }
-    }, [urlSuffix, skillQuery]);
+    }, [navBarUrlSuffix, skillQuery]);
 
     console.log(urlBuilder)
     useEffect(() => {
-        if(urlSuffix.includes('Full time')) {
+        if(navBarUrlSuffix.includes('Full time')) {
             setHeaderText('Full time jobs')
-        } else if (urlSuffix.includes('Part time')) {
+        } else if (navBarUrlSuffix.includes('Part time')) {
             setHeaderText('Part time jobs')
-        } else if (urlSuffix.includes('Contract')) {
+        } else if (navBarUrlSuffix.includes('Contract')) {
             setHeaderText('Contract jobs')
-        } else if (!urlSuffix.includes('?')) {
+        } else if (!navBarUrlSuffix.includes('?')) {
             setHeaderText('All Jobs!')
         }
-    }, [urlSuffix]);
+    }, [navBarUrlSuffix]);
 
 
 
@@ -50,7 +52,7 @@ const JobListings = ({urlSuffix, setUrlSuffix}) => {
     return (
         <main className='mx-auto container justify-content-center col-12 col-md-7 p-0'>
                 <Header headerText={headerText} />
-                <Table jobInfo={jobInfo} skillQuery={skillQuery} setUrlSuffix={setUrlSuffix} setSkillQuery={setSkillQuery} />
+                <Table jobInfo={jobInfo} skillQuery={skillQuery} setUrlSuffix={setNavBarUrlSuffix} setSkillQuery={setSkillQuery} />
         </main>
     )
 }
