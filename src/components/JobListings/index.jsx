@@ -3,8 +3,7 @@ import Table from "../Table/index.jsx";
 import {useEffect, useState} from "react";
 
 const JobListings = ({headerText, jobInfo, setJobInfo, url}) => {
-    // const [headerText, setHeaderText] = useState('Most recent jobs')
-    // const [jobInfo, setJobInfo] = useState([])
+
     useEffect(() => {
         const getJobInfo = async (url) => {
             const response = await fetch(url)

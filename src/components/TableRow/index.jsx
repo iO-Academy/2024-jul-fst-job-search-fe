@@ -8,16 +8,16 @@ const TableRow = ({jobTitle, company, logo, contract, salary, skills, jobIdSelec
         <tr onClick={() => {jobIdSelector(jobId)}}
             data-bs-toggle='modal'
             data-bs-target='#jobDescription'>
-            <td>
+            <td className='p-0'>
                 <Company logo={logo} jobTitle={jobTitle} companyName={company}/>
             </td>
-            <td>
+            <td className='p-0'>
                 <TypeBadge jobType={contract} bgColor={'bg-primary'}/>
             </td>
-            <td>
+            <td className='p-0'>
                 <Salary salary={salary}/>
             </td>
-            <td className='fs-6'>
+            <td className='fs-6 p-0'>
                 <SkillsBadges itemSkills={skills}/>
             </td>
         </tr>
