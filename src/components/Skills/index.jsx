@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-const Skills = ({setHeaderText, setUrl}) => {
+const Skills = ({setHeader, setQuery, setViewButton}) => {
 
 const [skills, setSkills] = useState([])
 
@@ -15,8 +15,9 @@ const [skills, setSkills] = useState([])
     )
 
     const clickSkill = (id) => {
-        setHeaderText('Search results')
-        setUrl('http://0.0.0.0:8080/jobs?skill='+id)
+        setHeader('Search results')
+        setQuery('http://0.0.0.0:8080/jobs?skill='+id)
+        setViewButton('View most recent jobs ->')
     }
 
     return (

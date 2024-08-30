@@ -1,20 +1,23 @@
+import './App.css'
+import JobSearch from "./components/JobSearch/index.jsx";
+import {useState} from "react";
 import JobListings from "./components/JobListings/index.jsx";
-import Nav from "./components/Navbar/index.jsx";
 import Footer from "./components/Footer/index.jsx";
 import Skills from "./components/Skills/index.jsx";
-import {useState} from "react";
+import Navbar from "./components/Navbar/index.jsx";
 
 function App() {
-
-    const [headerText, setHeaderText] = useState('Most recent jobs')
-    const [jobInfo, setJobInfo] = useState([])
-    const [url, setUrl] = useState('http://0.0.0.0:8080/jobs/recent')
+    const [query, setQuery] = useState('http://0.0.0.0:8080/jobs/recent')
+    const [header, setHeader] = useState('Most recent jobs')
+    const [viewButton, setViewButton] = useState('View all jobs ->')
 
     return (
         <>
-            <Nav/>
-            <JobListings headerText={headerText} jobInfo={jobInfo} setJobInfo={setJobInfo} url={url}/>
-            <Skills setHeaderText={setHeaderText} setUrl={setUrl}/>
+            <Navbar/>
+            <JobSearch setQuery={setQuery} setHeader={setHeader} setViewButton={setViewButton}/>
+            <JobListings setQuery={setQuery} query={query} header={header} setHeader={setHeader} viewButton={viewButton}
+                         setViewButton={setViewButton}/>
+            <Skills setHeader={setHeader} setQuery={setQuery} setViewButton={setViewButton}/>
             <Footer/>
         </>
     )

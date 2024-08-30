@@ -2,20 +2,22 @@ import Header from "../Header/index.jsx";
 import Table from "../Table/index.jsx";
 import {useEffect, useState} from "react";
 
-const JobListings = ({headerText, jobInfo, setJobInfo, url}) => {
+const JobListings = ({setQuery, query, setHeader, header, viewButton, setViewButton}) => {
 
+    const [jobSearchResults, setJobSearchResults] = useState([])
     useEffect(() => {
-        const getJobInfo = async (url) => {
-            const response = await fetch(url)
+        const JobInfo = async () => {
+            const response = await fetch(query)
             const data = await response.json()
-            setJobInfo(data)
+            setJobSearchResults(data)
         }
-        getJobInfo(url)
-    }, [url]);
+        JobInfo()
+    }, [query]);
+
     return (
-        <main className='mx-auto container justify-content-center col-12 col-md-7 p-0'>
-                <Header headerText={headerText} />
-                <Table jobInfo={jobInfo} />
+        <main className='container col-12 col-md-7'>
+                <Header setQuery={setQuery} header={header} setHeader={setHeader} viewButton={viewButton} setViewButton={setViewButton}/>
+                <Table jobInfo={jobSearchResults} />
         </main>
     )
 }
