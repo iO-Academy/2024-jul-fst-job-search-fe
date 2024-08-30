@@ -2,8 +2,10 @@ import Header from "../Header/index.jsx";
 import Table from "../Table/index.jsx";
 import {useEffect, useState} from "react";
 
-const JobListings = ({navBarUrlSuffix, setNavBarUrlSuffix, skillQuery, setSkillQuery}) => {
+const JobListings = ({navBarUrlSuffix, setNavBarUrlSuffix, skillQuery, setSkillQuery, typeQuery, setTypeQuery}) => {
     console.log(skillQuery)
+    console.log(typeQuery)
+
 
     const [urlBuilder, setUrlBuilder] = useState('jobs/recent')
 
@@ -12,21 +14,33 @@ const JobListings = ({navBarUrlSuffix, setNavBarUrlSuffix, skillQuery, setSkillQ
 
     useEffect(() => {
 
-        if (navBarUrlSuffix && skillQuery){
-            setUrlBuilder(navBarUrlSuffix+'&'+skillQuery)
-        }
-        else if (navBarUrlSuffix && !skillQuery) {
-            setSkillQuery('')
-            setUrlBuilder(navBarUrlSuffix)
-        }
-        else if (skillQuery && !navBarUrlSuffix) {
-            setUrlBuilder('jobs?'+skillQuery)
-        }
-    }, [navBarUrlSuffix, skillQuery]);
+        // if (navBarUrlSuffix) {
+            if (navBarUrlSuffix && skillQuery) {
+                setUrlBuilder(navBarUrlSuffix + '&' + skillQuery)
+            } else if (navBarUrlSuffix && !skillQuery) {
+                setSkillQuery('')
+                setUrlBuilder(navBarUrlSuffix)
+            } else if (skillQuery && !navBarUrlSuffix) {
+                setUrlBuilder('jobs?' + skillQuery)
+            }
+        // }
+        // else if (typeQuery) {
+        //     setNavBarUrlSuffix('')
+        //     if (typeQuery && skillQuery) {
+        //         setUrlBuilder('jobs?'+typeQuery + '&' + skillQuery)
+        //     } else if (typeQuery && !skillQuery) {
+        //         setSkillQuery('')
+        //         setUrlBuilder('jobs?'+navBarUrlSuffix)
+        //     } else if (skillQuery && !typeQuery) {
+        //         setUrlBuilder('jobs?' + skillQuery)
+        //     }
+        // }
 
-    console.log(urlBuilder)
+    }, [navBarUrlSuffix, skillQuery, typeQuery]);
+
+    console.log('http://0.0.0.0:8080/'+urlBuilder)
     useEffect(() => {
-        if(navBarUrlSuffix.includes('Full time')) {
+        if (navBarUrlSuffix.includes('Full time')) {
             setHeaderText('Full time jobs')
         } else if (navBarUrlSuffix.includes('Part time')) {
             setHeaderText('Part time jobs')
@@ -36,7 +50,6 @@ const JobListings = ({navBarUrlSuffix, setNavBarUrlSuffix, skillQuery, setSkillQ
             setHeaderText('All Jobs!')
         }
     }, [navBarUrlSuffix]);
-
 
 
     useEffect(() => {
@@ -51,8 +64,9 @@ const JobListings = ({navBarUrlSuffix, setNavBarUrlSuffix, skillQuery, setSkillQ
 
     return (
         <main className='mx-auto container justify-content-center col-12 col-md-7 p-0'>
-                <Header headerText={headerText} />
-                <Table jobInfo={jobInfo} skillQuery={skillQuery} setUrlSuffix={setNavBarUrlSuffix} setSkillQuery={setSkillQuery} />
+            <Header headerText={headerText}/>
+            <Table jobInfo={jobInfo} skillQuery={skillQuery} setUrlSuffix={setNavBarUrlSuffix}
+                   setSkillQuery={setSkillQuery} typeQuery={typeQuery} setTypeQuery={setTypeQuery}/>
         </main>
     )
 }

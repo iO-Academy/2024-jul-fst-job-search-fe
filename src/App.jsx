@@ -11,7 +11,7 @@ function App() {
     const [navBarUrlSuffix, setNavBarUrlSuffix] = useState('')
     const [filterBarSelected, setFilterBarSelected] = useState('')
     const [skillQuery, setSkillQuery] = useState('')
-
+    const [typeQuery, setTypeQuery] = useState('')
 
 
     useEffect(() => {
@@ -19,23 +19,22 @@ function App() {
                 setNavBarSearchUrl('')
                 setSkillQuery('')
                 setNavBarSearchUrl('jobs?type[]=Full time')
-            }
-            else if (navBarSelected === 'Part time') {
+            } else if (navBarSelected === 'Part time') {
                 setNavBarSearchUrl('')
                 setSkillQuery('')
                 setNavBarSearchUrl('jobs?type[]=Part time')
-            }
-            else if (navBarSelected === 'Contract') {
+            } else if (navBarSelected === 'Contract') {
                 setNavBarSearchUrl('')
                 setSkillQuery('')
                 setNavBarSearchUrl('jobs?type[]=Contract')
-            }
-            else if (navBarSelected === 'All jobs') {
+            } else if (navBarSelected === 'All jobs') {
                 setNavBarSearchUrl('')
+                setTypeQuery('')
                 setSkillQuery('')
                 setNavBarSearchUrl('jobs')
             }
-    }, [navBarSelected]);
+
+    }, [navBarSelected, typeQuery]);
 
 
     useEffect(() => {
@@ -44,15 +43,11 @@ function App() {
         }
     }, [navBarSearchUrl]);
 
-
-    console.log(navBarSelected)
-    console.log(navBarSearchUrl)
-
     return (
         <>
             <Nav getSelected={navBarSelected} setSelected={setNavBarSelected}/>
-            <SearchSection getSelected={filterBarSelected} setSelected={setFilterBarSelected}/>
-            <JobListings  navBarUrlSuffix={navBarUrlSuffix} setNavBarUrlSuffix={setNavBarUrlSuffix} skillQuery={skillQuery} setSkillQuery={setSkillQuery}/>
+            <SearchSection filterBarSelected={filterBarSelected} setFilterBarSelected={setFilterBarSelected}/>
+            <JobListings  navBarUrlSuffix={navBarUrlSuffix} setNavBarUrlSuffix={setNavBarUrlSuffix} skillQuery={skillQuery} setSkillQuery={setSkillQuery} typeQuery={typeQuery} setTypeQuery={setTypeQuery}/>
             <Footer/>
         </>
     )

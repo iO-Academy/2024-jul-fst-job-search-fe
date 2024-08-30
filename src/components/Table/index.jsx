@@ -2,7 +2,7 @@ import TableRow from "../TableRow/index.jsx";
 import JobDescriptionModal from "../JobDescriptionModal/index.jsx";
 import {useState} from "react";
 
-const Table = ({jobInfo, skillQuery, setSkillQuery, setUrlSuffix}) => {
+const Table = ({jobInfo, skillQuery, setSkillQuery, setUrlSuffix, typeQuery, setTypeQuery}) => {
     const [modalID, setModalID] = useState(1)
 
     return (
@@ -30,7 +30,9 @@ const Table = ({jobInfo, skillQuery, setSkillQuery, setUrlSuffix}) => {
                                     salary={item.salary}
                                     skills={item.skills}
                                     logo={item.logo}
-                                    setSkillQuery={setSkillQuery} skillQuery={skillQuery}
+                                    setSkillQuery={setSkillQuery}
+                                    setTypeQuery={setTypeQuery}
+
                                 />
                             )
                         }

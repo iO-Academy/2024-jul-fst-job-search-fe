@@ -3,7 +3,7 @@ import TypeBadge from "../TypeBadge/index.jsx";
 import Salary from "../Salary/index.jsx";
 import SkillsBadges from "../SkillsBadges/index.jsx";
 
-const TableRow = ({jobTitle, company, logo, contract, salary, skills, skillQuery, setSkillQuery}) => {
+const TableRow = ({jobTitle, company, logo, contract, salary, skills, setSkillQuery, setTypeQuery}) => {
     return (
 
         <tr>
@@ -11,7 +11,7 @@ const TableRow = ({jobTitle, company, logo, contract, salary, skills, skillQuery
                 <Company logo={logo} jobTitle={jobTitle} companyName={company}/>
             </td>
             <td>
-                <TypeBadge jobType={contract} bgColor={'bg-primary'}/>
+                <TypeBadge setTypeQuery={setTypeQuery} jobType={contract} bgColor={'bg-primary'}/>
             </td>
             {salary ? <td><Salary salary={salary}/></td>
                 : <td className='text-center'>competitive</td>}
