@@ -23,6 +23,7 @@ const JobSearch = ({setQuery, setHeader, setViewButton, checkBoxUrl, setCheckBox
                 'Contract': false
             }
         )
+    console.log(checkBoxValue)
 
         if (checkBoxValue['Contract'] && checkBoxValue["Full time"] && checkBoxValue['Part time']) {
             setFilterBarSelected('&type[]=Contract&type[]=Full time&type[]=Part time')

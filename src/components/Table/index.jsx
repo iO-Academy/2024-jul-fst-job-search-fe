@@ -7,7 +7,7 @@ const Table = ({jobInfo, skillQuery, setSkillQuery, setUrlSuffix, typeQuery, set
 
     return (
         <div>
-            <table className='table table-dark table-striped ms-1 ms-md-0 table-sm'>
+            <table className='table table-dark table-striped table-sm col-12'>
                 <thead>
                 <tr>
                     <th scope='col'>Job title / Company</th>
@@ -18,7 +18,7 @@ const Table = ({jobInfo, skillQuery, setSkillQuery, setUrlSuffix, typeQuery, set
                 </thead>
                 <tbody>
                 {
-                    jobInfo.map((item) => {
+                    jobInfo?.map((item) => {
                             return (
                                 <TableRow
                                     key={item.id}

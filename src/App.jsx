@@ -2,9 +2,10 @@ import './App.css'
 import JobSearch from "./components/JobSearch/index.jsx";
 import {useState} from "react";
 import JobListings from "./components/JobListings/index.jsx";
-import Nav from "./components/Navbar/index.jsx";
 import Footer from "./components/Footer/index.jsx";
 import {useEffect} from "react";
+import Nav from "./components/Navbar/index.jsx";
+import Skills from "./components/Skills/index.jsx";
 
 function App() {
     const [navBarSelected, setNavBarSelected] = useState('')
@@ -14,8 +15,7 @@ function App() {
     const [skillQuery, setSkillQuery] = useState('')
     const [typeQuery, setTypeQuery] = useState('')
     const [checkBoxUrl, setCheckBoxUrl] = useState('')
-    const [query, setQuery] = useState('')
-
+    const [query, setQuery] = useState('http://0.0.0.0:8080/jobs/recent')
     const [header, setHeader] = useState('Most recent jobs')
     const [viewButton, setViewButton] = useState('View all jobs ->')
 
@@ -55,6 +55,7 @@ console.log(filterBarSelected)
             <JobSearch setCheckBoxUrl={setCheckBoxUrl} checkBoxUrl={checkBoxUrl} setQuery={setQuery} setHeader={setHeader} setViewButton={setViewButton} setFilterBarSelected={setFilterBarSelected} filterBarSelected={filterBarSelected}/>
             <JobListings setQuery={setQuery} query={query} header={header} setHeader={setHeader} viewButton={viewButton}
                           setViewButton={setViewButton} navBarUrlSuffix={navBarUrlSuffix} setNavBarUrlSuffix={setNavBarUrlSuffix} skillQuery={skillQuery} setSkillQuery={setSkillQuery} typeQuery={typeQuery} setTypeQuery={setTypeQuery}/>
+            <Skills setHeader={setHeader} setQuery={setQuery} setViewButton={setViewButton}/>
             <Footer/>
         </>
     )

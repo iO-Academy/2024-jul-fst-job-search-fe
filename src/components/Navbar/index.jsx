@@ -3,7 +3,7 @@ import NavFilter from "../NavFilter/index.jsx";
 
 const Navbar = ({getSelected, setSelected}) => {
     return (
-        <nav className='navbar bg-light'>
+        <nav className='navbar bg-light col-12 px-0'>
             <div className='container justify-content-between'>
                 <a className='navbar-brand'>JobSearch</a>
                 <div className='row col-md-5 d-none d-md-inline text-center'>
