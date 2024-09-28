@@ -1,20 +1,21 @@
-const Header = ({header, setHeader, viewButton, setQuery, setViewButton}) => {
+import {useEffect} from "react"
 
-    const returnToRecent = () => {
-        setHeader('Most recent jobs')
-        setQuery('http://0.0.0.0:8080/jobs/recent')
-        setViewButton('View all jobs ->')
-    }
+const Header = ({setHeader, header, query}) => {
 
-    const handleClick = () => {
-        viewButton === 'View most recent jobs ->' && returnToRecent()
-    }
+    useEffect(() => {
+        if (query.includes('Full time')) {
+            setHeader('Full Time Jobs')
+        } else if (query.includes('Part time')) {
+            setHeader('Part Time Jobs')
+        } else if (query.includes('Contract')) {
+            setHeader('Contracted Jobs')
+        }
+    }, [setHeader, query])
 
     return (
         <header>
-            <div className='row align-items-center justify-content-between'>
-                <h2 className='col-6 my-3'>{header}</h2>
-                <a className='col-5 text-end fs-6 text-decoration-none' onClick={handleClick}>{viewButton}</a>
+            <div>
+                <h2>{header}</h2>
             </div>
         </header>
     )
