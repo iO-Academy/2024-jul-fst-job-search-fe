@@ -1,7 +1,7 @@
-import TypeBadge from "../TypeBadge/index.jsx";
-import Salary from "../Salary/index.jsx";
-import SkillsBadges from "../SkillsBadges/index.jsx";
-import {useEffect, useState} from "react";
+import TypeBadge from "../TypeBadge/index.jsx"
+import Salary from "../Salary/index.jsx"
+import SkillsBadges from "../SkillsBadges/index.jsx"
+import {useEffect, useState} from "react"
 
 const JobDescriptionModal = ({id}) => {
 

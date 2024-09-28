@@ -1,6 +1,4 @@
-import {useEffect, useState} from "react";
-
-
+import {useEffect, useState} from "react"
 const PopularSkills = () => {
     const [topSkills, setTopSkills] = useState([])
 
@@ -15,15 +13,14 @@ const PopularSkills = () => {
             setTopSkills(topThree)
         }
         getSkills()
-    }, []);
+    }, [])
 
     return (
         topSkills.map(skill => {
             return (
-                <span key={skill.id} className="badge text-bg-info text-light mx-1">{skill.skill}</span>
+                <span key={skill.id} className="badge text-bg-info text-light mx-1 d-none">{skill.skill}</span>
             )
         })
     )
 }
-
 export default PopularSkills

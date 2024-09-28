@@ -1,16 +1,17 @@
-import SkillBox from "../SkillBox/index.jsx";
+import SkillBox from "../SkillBox/index.jsx"
 
-const Skills = ({setHeader, setQuery, setViewButton}) => {
-
-
+const Skills = ({setQuery, setHeader, setSelected}) => {
 
     return (
-        <div className='text-bg-primary py-3 col-md-12 col-12'>
-                    <h2 className='container justify-content-start col-10 col-md-7 text-black px-0'>Browse skills</h2>
-                <div className='container d-flex flex-wrap justify-content-start col-10 col-md-7 px-0'>
-                    <SkillBox setHeader={setHeader} setQuery={setQuery} setViewButton={setViewButton}/>
-                </div>
+        <div className='text-bg-primary py-3'>
+            <h2 className='container col-10 col-md-7 text-white mb-3 text-center text-md-start'>
+                Select to Filter by Skill
+            </h2>
+            <div className='container d-flex col-8 col-md-7'>
+                <SkillBox setSelected={setSelected} setHeader={setHeader} setQuery={setQuery}/>
+            </div>
         </div>
+
     )
 }
 

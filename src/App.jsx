@@ -1,62 +1,41 @@
 import './App.css'
-import JobSearch from "./components/JobSearch/index.jsx";
-import {useState} from "react";
-import JobListings from "./components/JobListings/index.jsx";
-import Footer from "./components/Footer/index.jsx";
-import {useEffect} from "react";
-import Nav from "./components/Navbar/index.jsx";
-import Skills from "./components/Skills/index.jsx";
+import JobSearch from "./components/JobSearch/index.jsx"
+import {useState, useEffect} from "react"
+import JobListings from "./components/JobListings/index.jsx"
+import Footer from "./components/Footer/index.jsx"
+import Nav from "./components/Navbar/index.jsx"
+import Skills from "./components/Skills/index.jsx"
 
 function App() {
     const [navBarSelected, setNavBarSelected] = useState('')
-    const [navBarSearchUrl, setNavBarSearchUrl] = useState('')
-    const [navBarUrlSuffix, setNavBarUrlSuffix] = useState('')
-    const [filterBarSelected, setFilterBarSelected] = useState('')
-    const [skillQuery, setSkillQuery] = useState('')
-    const [typeQuery, setTypeQuery] = useState('')
-    const [checkBoxUrl, setCheckBoxUrl] = useState('')
     const [query, setQuery] = useState('http://0.0.0.0:8080/jobs/recent')
     const [header, setHeader] = useState('Most recent jobs')
-    const [viewButton, setViewButton] = useState('View all jobs ->')
+    const [searchTerm, setSearchTerm] = useState('')
+    const [currentPage, setCurrentPage] = useState(1)
 
 
     useEffect(() => {
-            if (navBarSelected === 'Full time') {
-                setNavBarSearchUrl('')
-                setSkillQuery('')
-                setNavBarSearchUrl('jobs?type[]=Full time')
-            } else if (navBarSelected === 'Part time') {
-                setNavBarSearchUrl('')
-                setSkillQuery('')
-                setNavBarSearchUrl('jobs?type[]=Part time')
-            } else if (navBarSelected === 'Contract') {
-                setNavBarSearchUrl('')
-                setSkillQuery('')
-                setNavBarSearchUrl('jobs?type[]=Contract')
-            } else if (navBarSelected === 'All jobs') {
-                setNavBarSearchUrl('')
-                setTypeQuery('')
-                setSkillQuery('')
-                setNavBarSearchUrl('jobs')
-            }
-
-    }, [navBarSelected, typeQuery, query]);
-
-console.log(filterBarSelected)
-    useEffect(() => {
-        if (navBarSearchUrl) {
-            setNavBarUrlSuffix(navBarSearchUrl)
+        let newQuery = ''
+        if (navBarSelected) {
+            newQuery = `http://0.0.0.0:8080/jobs?type[]=${navBarSelected}`
+            setCurrentPage(1)
         }
-    }, [navBarSearchUrl]);
+        if (searchTerm) {
+            newQuery = `http://0.0.0.0:8080/jobs?search=${searchTerm}`
+            setCurrentPage(1)
+            setHeader('Search Results')
+        }
+        setQuery(newQuery)
+    }, [navBarSelected, searchTerm, setCurrentPage])
+
 
     return (
         <>
-            <Nav getSelected={navBarSelected} setSelected={setNavBarSelected}/>
-            <JobSearch setCheckBoxUrl={setCheckBoxUrl} checkBoxUrl={checkBoxUrl} setQuery={setQuery} setHeader={setHeader} setViewButton={setViewButton} setFilterBarSelected={setFilterBarSelected} filterBarSelected={filterBarSelected}/>
-            <JobListings setQuery={setQuery} query={query} header={header} setHeader={setHeader} viewButton={viewButton}
-                          setViewButton={setViewButton} navBarUrlSuffix={navBarUrlSuffix} setNavBarUrlSuffix={setNavBarUrlSuffix} skillQuery={skillQuery} setSkillQuery={setSkillQuery} typeQuery={typeQuery} setTypeQuery={setTypeQuery}/>
-            <Skills setHeader={setHeader} setQuery={setQuery} setViewButton={setViewButton}/>
-            <Footer/>
+            <Nav getSelected={navBarSelected} setSelected={setNavBarSelected} />
+            <JobSearch setSearchTerm={setSearchTerm} />
+            <JobListings currentPage={currentPage} setCurrentPage={setCurrentPage} getSelected={navBarSelected} setSelected={setNavBarSelected} query={query} setQuery={setQuery} header={header} setHeader={setHeader} setSearchTerm={setSearchTerm} />
+            <Skills setSelected={setNavBarSelected} setHeader={setHeader} setQuery={setQuery} />
+            <Footer />
         </>
     )
 }
