@@ -1,12 +1,12 @@
-import TableRow from "../TableRow/index.jsx";
-import JobDescriptionModal from "../JobDescriptionModal/index.jsx";
-import {useState} from "react";
+import TableRow from "../TableRow/index.jsx"
+import JobDescriptionModal from "../JobDescriptionModal/index.jsx"
+import {useState} from "react"
 
-const Table = ({jobInfo}) => {
+const Table = ({jobInfo, setSkillQuery, setTypeQuery}) => {
     const [modalID, setModalID] = useState(1)
     return (
         <div>
-            <table className='table table-dark table-striped ms-1 ms-md-0 table-sm'>
+            <table className='table table-dark col-12'>
                 <thead>
                 <tr>
                     <th scope='col'>Job title / Company</th>
@@ -17,7 +17,7 @@ const Table = ({jobInfo}) => {
                 </thead>
                 <tbody>
                 {
-                    jobInfo.map((item) => {
+                    jobInfo?.map((item) => {
                             return (
                                 <TableRow
                                     key={item.id}
@@ -29,6 +29,9 @@ const Table = ({jobInfo}) => {
                                     salary={item.salary}
                                     skills={item.skills}
                                     logo={item.logo}
+                                    setSkillQuery={setSkillQuery}
+                                    setTypeQuery={setTypeQuery}
+
                                 />
                             )
                         }

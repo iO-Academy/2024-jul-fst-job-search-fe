@@ -1,6 +1,5 @@
 Job Listing Frontend Website
 
-
 For this project we have been tasked with creating the front end of a website
 that uses an API to provide our information.
 

@@ -1,7 +1,7 @@
-import TypeBadge from "../TypeBadge/index.jsx";
-import Salary from "../Salary/index.jsx";
-import SkillsBadges from "../SkillsBadges/index.jsx";
-import {useEffect, useState} from "react";
+import TypeBadge from "../TypeBadge/index.jsx"
+import Salary from "../Salary/index.jsx"
+import SkillsBadges from "../SkillsBadges/index.jsx"
+import {useEffect, useState} from "react"
 
 const JobDescriptionModal = ({id}) => {
 
@@ -9,7 +9,7 @@ const JobDescriptionModal = ({id}) => {
 
     useEffect(() => {
         const getJobInfo = async () => {
-            const response = await fetch(`http://0.0.0.0:8080/jobs/${id}`)
+            const response = await fetch(`https://job-search-project.2024-thomask.dev.io-academy.uk/jobs/${id}`)
             const data = await response.json()
             setJobInfo(data)
         }
