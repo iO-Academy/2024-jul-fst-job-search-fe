@@ -4,7 +4,7 @@ const PopularSkills = () => {
 
     useEffect(() => {
         const getSkills = async () => {
-            const response = await fetch('http://0.0.0.0:8080/skills')
+            const response = await fetch('https://job-search-project.2024-thomask.dev.io-academy.uk/skills')
             const data = await response.json()
 
             const sortedSkills = data.sort((a,b) => b.job_count - a.job_count)

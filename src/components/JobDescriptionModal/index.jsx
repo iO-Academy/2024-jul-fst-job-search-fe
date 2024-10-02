@@ -9,7 +9,7 @@ const JobDescriptionModal = ({id}) => {
 
     useEffect(() => {
         const getJobInfo = async () => {
-            const response = await fetch(`http://0.0.0.0:8080/jobs/${id}`)
+            const response = await fetch(`https://job-search-project.2024-thomask.dev.io-academy.uk/jobs/${id}`)
             const data = await response.json()
             setJobInfo(data)
         }

@@ -10,7 +10,7 @@ const JobListings = ({currentPage, setCurrentPage, query, header, setHeader, get
     const resetQuery = () => {
         setSearchTerm('')
         setSelected('')
-        setQuery('http://0.0.0.0:8080/jobs/recent')
+        setQuery('https://job-search-project.2024-thomask.dev.io-academy.uk/jobs/recent')
         setCurrentPage(1)
         setHeader('Most recent jobs')
     }

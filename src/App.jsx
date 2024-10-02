@@ -8,7 +8,7 @@ import Skills from "./components/Skills/index.jsx"
 
 function App() {
     const [navBarSelected, setNavBarSelected] = useState('')
-    const [query, setQuery] = useState('http://0.0.0.0:8080/jobs/recent')
+    const [query, setQuery] = useState('https://job-search-project.2024-thomask.dev.io-academy.uk/jobs/recent')
     const [header, setHeader] = useState('Most recent jobs')
     const [searchTerm, setSearchTerm] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
@@ -17,11 +17,11 @@ function App() {
     useEffect(() => {
         let newQuery = ''
         if (navBarSelected) {
-            newQuery = `http://0.0.0.0:8080/jobs?type[]=${navBarSelected}`
+            newQuery = `https://job-search-project.2024-thomask.dev.io-academy.uk/jobs?type[]=${navBarSelected}`
             setCurrentPage(1)
         }
         if (searchTerm) {
-            newQuery = `http://0.0.0.0:8080/jobs?search=${searchTerm}`
+            newQuery = `https://job-search-project.2024-thomask.dev.io-academy.uk/jobs?search=${searchTerm}`
             setCurrentPage(1)
             setHeader('Search Results')
         }

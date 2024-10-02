@@ -4,14 +4,14 @@ const SkillBox = ({ setQuery, setHeader, setSelected }) => {
     const [skills, setSkills] = useState([])
 
     const clickSkill = (id, skill) => {
-        setQuery('http://0.0.0.0:8080/jobs?skill=' + id)
+        setQuery('https://job-search-project.2024-thomask.dev.io-academy.uk/jobs?skill=' + id)
         setHeader(`${skill} Jobs`)
         setSelected('')
     }
 
     useEffect(() => {
         const getSkills = async () => {
-            const response = await fetch('http://0.0.0.0:8080/skills')
+            const response = await fetch('https://job-search-project.2024-thomask.dev.io-academy.uk/skills')
             const data = await response.json()
             setSkills(data)
         }

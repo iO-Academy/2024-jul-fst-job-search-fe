@@ -4,7 +4,6 @@ import {useState} from "react"
 
 const Table = ({jobInfo, setSkillQuery, setTypeQuery}) => {
     const [modalID, setModalID] = useState(1)
-
     return (
         <div>
             <table className='table table-dark col-12'>
