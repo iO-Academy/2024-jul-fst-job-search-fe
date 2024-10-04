@@ -17,17 +17,21 @@ function App() {
     useEffect(() => {
         let newQuery = ''
         if (navBarSelected) {
-            newQuery = `https://job-search-project.2024-thomask.dev.io-academy.uk/jobs?type[]=${navBarSelected}`
+            if (navBarSelected === 'All Jobs') {
+                newQuery = `https://job-search-project.2024-thomask.dev.io-academy.uk/jobs`
+            } else {
+                newQuery = `https://job-search-project.2024-thomask.dev.io-academy.uk/jobs?type[]=${navBarSelected}`
+            }
             setCurrentPage(1)
         }
         if (searchTerm) {
             newQuery = `https://job-search-project.2024-thomask.dev.io-academy.uk/jobs?search=${searchTerm}`
             setCurrentPage(1)
+
             setHeader('Search Results')
         }
         setQuery(newQuery)
     }, [navBarSelected, searchTerm, setCurrentPage])
-
 
     return (
         <>

@@ -28,6 +28,8 @@ const JobListings = ({currentPage, setCurrentPage, query, header, setHeader, get
                 filteredData = data.filter((job) => job.type === 'Part time')
             } else if (getSelected === 'Contract') {
                 filteredData = data.filter((job) => job.type === 'Contract')
+            } else if (getSelected === 'All Jobs') {
+                filteredData = data
             }
 
             setAllJobs(filteredData)

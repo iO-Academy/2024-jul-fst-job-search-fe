@@ -5,12 +5,15 @@ const Navbar = ({ getSelected, setSelected }) => {
             <div className='container justify-content-between'>
                 <a className='navbar-brand'>JobSearch</a>
                 <div className='row col-md-5 d-none d-md-inline text-center'>
+                    <NavFilter jobType='All Jobs' selected={getSelected === 'All Jobs'} click={() => setSelected('All Jobs')} />
                     <NavFilter jobType='Full time' selected={getSelected === 'Full time'} click={() => setSelected('Full time')} />
                     <NavFilter jobType='Part time' selected={getSelected === 'Part time'} click={() => setSelected('Part time')} />
                     <NavFilter jobType='Contract' selected={getSelected === 'Contract'} click={() => setSelected('Contract')} />
                 </div>
-                <button className='border border-success d-none d-md-inline rounded text-success'>Post a job</button>
+                <button  data-bs-toggle='modal'
+                         data-bs-target='#postJob' className='border border-success d-none d-md-inline rounded text-success'>Post a job</button>
             </div>
+
         </nav>
     )
 }
