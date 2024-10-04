@@ -1,5 +1,4 @@
 import NavFilter from "../NavFilter/index.jsx"
-import PostJobModal from "../postJobModal/index.jsx";
 const Navbar = ({ getSelected, setSelected }) => {
     return (
         <nav className='navbar bg-light col-12 px-0'>
@@ -13,7 +12,6 @@ const Navbar = ({ getSelected, setSelected }) => {
                 </div>
                 <button  data-bs-toggle='modal'
                          data-bs-target='#postJob' className='border border-success d-none d-md-inline rounded text-success'>Post a job</button>
-                <PostJobModal/>
             </div>
 
         </nav>
