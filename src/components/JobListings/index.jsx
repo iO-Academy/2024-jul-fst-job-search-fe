@@ -13,6 +13,7 @@ const JobListings = ({setQuery, query, setHeader, header, viewButton, setViewBut
         }
         JobInfo()
     }, [query]);
+
     return (
         <main className='container col-12 col-md-7'>
                 <Header setQuery={setQuery} header={header} setHeader={setHeader} viewButton={viewButton} setViewButton={setViewButton}/>
